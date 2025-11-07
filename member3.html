@@ -8,23 +8,84 @@
 </head>
 <body>
   <header>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
     <h1>Pulido, Marc Daniel P.</h1>
     <h3>Member</h3>
+      <nav class="navbar">
+  <a href="index.html">Home</a>
+  <a href="leader.html">Glenn Pelingen</a>
+  <a href="member1.html">Mark Almoite</a>
+  <a href="member2.html">Adrian Mintar</a>
+  <a href="member3.html">Marc Pulido</a>
+  <a href="member4.html">Carlito Tamayo</a>
+</nav>
   </header>
 
   <main class="person-profile">
     <img src="PULIDO.jpg">
     <p>Hi! I'm Marc Daniel P. Pulido, a 2nd year BSIT student at the University of Eastern Pangasinan. I contributed in both front-end and back-end along with our leader.</p>
     <p>Helped by providing Basic Table Examples for our presentation.</p>
-    <p class="contact">Email: marcdanielpulido28@gmail.com</p>
-    <p class="contact">Facebook: <a href="https://www.facebook.com/kuze.masachika.244990#" target="_blank">Marc Pulido</a></p>
+    <p class="contact">Facebook: <a href="https://www.facebook.com/kuze.masachika.244990#" target="_blank">Marc Pulido</a></p><br>
+    <h5><b>MY SKILLS</b></h5>
+    <h6>CSS, JavaScript<br>
+      C++, Python<br>
+    Visual Studio, Visual Basic</h6>
     <a href="index.html" class="back-button">← Back to Team</a>
   </main>
 
   <footer>
     <p>© 2025 Team Profiles. All rights reserved.</p>
   </footer>
+  <script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  // Add a fade-out animation before opening profile
+  document.querySelectorAll('.view-profile').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = this.href;
+      document.body.style.transition = 'opacity 0.4s';
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.href = target;
+      }, 400); // matches the fade time
+    });
+  });
+// Dark Mode toggle (keep your existing one if you have it)
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+
+  // Fade animation for page navigation
+  document.addEventListener("DOMContentLoaded", () => {
+    // Select all links that lead to another page
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+
+        // Ignore links that open in a new tab (like Facebook)
+        if (this.target === "_blank" || href.startsWith("http")) return;
+
+        e.preventDefault(); // stop instant navigation
+        document.body.classList.add("fade-out"); // start fade animation
+
+        // wait for animation before going to next page
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500); // match the 0.5s transition time
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
-
-
