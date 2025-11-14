@@ -57,87 +57,53 @@
     <p>© 2025 Team Profiles. All rights reserved.</p>
   </footer>
   <script>
- 
-  // Add a fade-out animation before opening profile
-  document.querySelectorAll('.view-profile').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = this.href;
-      document.body.style.transition = 'opacity 0.4s';
-      document.body.style.opacity = '0';
-      setTimeout(() => {
-        window.location.href = target;
-      }, 400); // matches the fade time
-    });
+// Fade-out animation for "View Profile" links
+document.querySelectorAll('.view-profile').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = this.href;
+    document.body.classList.add('fade-out');
+    setTimeout(() => {
+      window.location.href = target;
+    }, 400); // matches fade duration
   });
+});
 
-  // Fade animation for page navigation
-  document.addEventListener("DOMContentLoaded", () => {
-    // Select all links that lead to another page
-    const links = document.querySelectorAll("a");
-
-    links.forEach(link => {
-      link.addEventListener("click", function (e) {
-        const href = this.getAttribute("href");
-
-        // Ignore links that open in a new tab (like Facebook)
-        if (this.target === "_blank" || href.startsWith("http")) return;
-
-        e.preventDefault(); // stop instant navigation
-        document.body.classList.add("fade-out"); // start fade animation
-
-        // wait for animation before going to next page
-        setTimeout(() => {
-          window.location.href = href;
-        }, 500); // match the 0.5s transition time
-      });
-    });
+// Fade-out animation for navbar links
+document.querySelectorAll('.navbar a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (this.target === '_blank' || href.startsWith('http')) return;
+    e.preventDefault();
+    document.body.classList.add('fade-out');
+    setTimeout(() => {
+      window.location.href = href;
+    }, 400);
   });
+});
 
-  // 🌙 DARK MODE FUNCTION (with memory)
+// Dark Mode Toggle
 function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
 
-  // Add fade effect each time
-  document.body.classList.add('fade-mode');
+  // Optional fade transition
+  document.body.classList.add('dark-transition');
   setTimeout(() => {
-    document.body.classList.remove('fade-mode');
-  }, 400);
+    document.body.classList.remove('dark-transition');
+  }, 300);
 }
 
-    // Save dark mode state in localStorage
-    if (document.body.classList.contains('dark-mode')) {
-      localStorage.setItem('darkMode', 'enabled');
-    } else {
-      localStorage.setItem('darkMode', 'disabled');
-    }
-  
-
-  // Apply dark mode on page load if it was enabled
-  window.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('darkMode') === 'enabled') {
-      document.body.classList.add('dark-mode');
-    }
-
-    // Fade animation for navigation
-    const links = document.querySelectorAll("a");
-    links.forEach(link => {
-      link.addEventListener("click", function (e) {
-        const href = this.getAttribute("href");
-
-        // Ignore external links
-        if (this.target === "_blank" || href.startsWith("http")) return;
-
-        e.preventDefault();
-        document.body.classList.add("fade-out");
-        setTimeout(() => {
-          window.location.href = href;
-        }, 500);
-      });
-    });
-  });
-
+// Apply dark mode on page load
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+  } else {
+    document.body.classList.remove('dark-mode'); // ensures light mode if disabled
+  }
+});
 </script>
+
 
 </body>
 </html>

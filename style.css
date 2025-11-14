@@ -479,7 +479,7 @@ body.fade-out {
 
 /* Smooth transition when switching themes */
 body {
-  transition: background-color 1s ease, color 1s ease;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
  .person-card,
 header,
@@ -487,10 +487,10 @@ footer,
 .person-profile,
 .view-profile,
 .back-button {
-  transition: background-color 1s ease, color 1s ease, box-shadow 1s ease;
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
  .fade-mode {
-  animation: fadeMode 1s ease;
+  animation: fadeMode 0.4s ease;
 }
 
 @keyframes fadeMode {
@@ -498,4 +498,6 @@ footer,
   100% { opacity: 1; }
 }
 
-
+.dark-transition {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
