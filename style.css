@@ -479,7 +479,7 @@ body.fade-out {
 
 /* Smooth transition when switching themes */
 body {
-  transition: background-color 0.4s ease, color 0.4s ease;
+  transition: background-color 2s ease, color 2s ease;
 }
  .person-card,
 header,
@@ -487,13 +487,14 @@ footer,
 .person-profile,
 .view-profile,
 .back-button {
-  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  transition: background-color 2s ease, color 2s ease, box-shadow 2s ease;
 }
  .fade-mode {
-  animation: fadeMode 0.4s ease;
+  animation: fadeMode 2s ease;
 }
 
 @keyframes fadeMode {
   0% { opacity: 0.5; }
   100% { opacity: 1; }
 }
+
