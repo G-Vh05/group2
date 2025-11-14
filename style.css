@@ -476,3 +476,24 @@ body.fade-out {
   transform: scale(1.2);
   box-shadow: 0 0 18px white;
 }
+
+/* Smooth transition when switching themes */
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+ .person-card,
+header,
+footer,
+.person-profile,
+.view-profile,
+.back-button {
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+ .fade-mode {
+  animation: fadeMode 0.4s ease;
+}
+
+@keyframes fadeMode {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
