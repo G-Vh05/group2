@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tamayo, Carlito Jr. O. - Profile</title>
   <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
   <header>
@@ -12,28 +15,41 @@
 
     <h1>Tamayo, Carlito Jr. O.</h1>
     <h3>Member</h3>
-      <nav class="navbar">
+  </header>
+<nav class="navbar">
   <a href="index.html">Home</a>
   <a href="leader.html">Glenn Pelingen</a>
   <a href="member1.html">Mark Almoite</a>
   <a href="member2.html">Adrian Mintar</a>
   <a href="member3.html">Marc Pulido</a>
   <a href="member4.html">Carlito Tamayo</a>
-</nav>
-  </header>
+</nav> 
 
   <main class="person-profile">
     <img src="CARLITO.jpg">
     <p>Hi! I'm Carlito Jr. O> Tamayo, a 2nd year BSIT student at the University of Eastern Pangasinan. I helped our Team together with Adrian with the website's design and functionality</p>
-    <p>Helped by providing an Introduction for our presentation.</p>
-    <p class="contact">Facebook: <a href="https://www.facebook.com/cotjr#" target="_blank">Carlito Tamayo Jr.</a></p>
-    <p class="contact">Instagram: <a href="https://www.instagram.com/butttcchhhhh/" target="_blank">butttcchhhhh</a></p>
-    <p class="contact">TikTok: <a href="https://www.tiktok.com/@bosssssiiiinnnngggg?_r=1&_t=ZS-91Bf7jRnJzu" target="_blank">butchhhhh</a></p>
-    <br>
-    <h5><b>MY SKILLS</b></h5>
-    <h6>CSS, JavaScript<br>
-      C++, Python<br>
-    Visual Studio, Visual Basic</h6>
+    <p>Helped by providing an Introduction for our presentation.</p><br>
+
+    <h5>My Socials</h5>
+<div class="social-buttons">
+  <a href="https://www.facebook.com/https://www.facebook.com/cotjr#" target="_blank" class="social-btn fb">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+
+  <a href="https://www.instagram.com/https://www.instagram.com/butttcchhhhh/" target="_blank" class="social-btn ig">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <a href="https://www.tiktok.com/@butchhhhh" target="_blank" class="social-btn tk">
+    <i class="fab fa-tiktok"></i>
+  </a>
+</div>
+
+    <h5>My Skills</h5>
+    <section>CSS, JavaScript<br>
+    C++, Python<br>
+    Visual Studio,<br> 
+  Visual Basic</section>
     <a href="index.html" class="back-button">← Back to Team</a>
   </main>
 
@@ -41,13 +57,6 @@
     <p>© 2025 Team Profiles. All rights reserved.</p>
   </footer>
   <script>
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
-
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
 
   // Add a fade-out animation before opening profile
   document.querySelectorAll('.view-profile').forEach(link => {
@@ -61,10 +70,6 @@
       }, 400); // matches the fade time
     });
   });
-// Dark Mode toggle (keep your existing one if you have it)
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
 
   // Fade animation for page navigation
   document.addEventListener("DOMContentLoaded", () => {
@@ -88,6 +93,43 @@
       });
     });
   });
+
+  // 🌙 DARK MODE FUNCTION (with memory)
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+
+    // Save dark mode state in localStorage
+    if (document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  }
+
+  // Apply dark mode on page load if it was enabled
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Fade animation for navigation
+    const links = document.querySelectorAll("a");
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+
+        // Ignore external links
+        if (this.target === "_blank" || href.startsWith("http")) return;
+
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      });
+    });
+  }); 
+
 </script>
 
 </body>

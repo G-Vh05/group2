@@ -6,13 +6,12 @@ body {
   background: #f8f9fc;
   color: #222;
 }
-h6 {
-  font-size: 15px;
-  text-align: center;
+section {
+  text-align: left;
 }
 
 h5  {
-  text-align: center;
+  text-align: left;
   font-size: 15px;
 }
 
@@ -247,8 +246,8 @@ footer {
 }
 
 .person-profile img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
@@ -400,3 +399,80 @@ body.fade-out {
 position: sticky;
 top: 0;
 z-index: 100;
+
+
+/* Smooth fade animation */
+body {
+  transition: opacity 0.5s ease, background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* Fade effect when switching pages */
+body.fade-out {
+  opacity: 0;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+}
+
+/* Colors */
+.fb {
+  background: #1877f2;
+}
+
+.ig {
+  background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+.tk {
+  background: #000;
+}
+
+.social-btn:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
+
+/* ===== SOCIAL ICONS IN DARK MODE ===== */
+.dark-mode .social-btn {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.dark-mode .fb {
+  box-shadow: 0 0 12px rgba(24, 119, 242, 0.8);
+}
+
+.dark-mode .ig {
+  box-shadow: 0 0 12px rgba(230, 45, 100, 0.8);
+}
+
+.dark-mode .tk {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+/* Hover glow boost */
+.dark-mode .social-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 18px white;
+}

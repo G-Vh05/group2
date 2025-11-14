@@ -12,15 +12,15 @@
 
     <h1>Welcome to our group portfolio!</h1>
     <p>Hello! We are Group 2. This webpage highlights our team members and what makes us unique.</p>
-      <nav class="navbar">
+  </header>
+<nav class="navbar">
   <a href="index.html">Home</a>
   <a href="leader.html">Glenn Pelingen</a>
   <a href="member1.html">Mark Almoite</a>
   <a href="member2.html">Adrian Mintar</a>
   <a href="member3.html">Marc Pulido</a>
   <a href="member4.html">Carlito Tamayo</a>
-</nav>
-  </header>
+</nav> 
 
 <h4>Meet our members!</h4>
   <main class="team-container">
@@ -69,13 +69,6 @@
     <p>© 2025 Group Profiles. All rights reserved.</p>
   </footer>
   <script>
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
-
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
 
   // Add a fade-out animation before opening profile
   document.querySelectorAll('.view-profile').forEach(link => {
@@ -90,10 +83,41 @@
     });
   });
 
-  // Dark Mode toggle (keep your existing one if you have it)
+  // 🌙 DARK MODE FUNCTION (with memory)
   function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
+
+    // Save dark mode state in localStorage
+    if (document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+    }
   }
+
+  // Apply dark mode on page load if it was enabled
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // Fade animation for navigation
+    const links = document.querySelectorAll("a");
+    links.forEach(link => {
+      link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+
+        // Ignore external links
+        if (this.target === "_blank" || href.startsWith("http")) return;
+
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      });
+    });
+  });
 </script>
 
 </body>
