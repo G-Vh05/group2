@@ -1,16 +1,35 @@
-/* ====== GENERAL STYLES ====== */
+/* ========================= GENERAL STYLES ========================= */
 body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   background: #f8f9fc;
   color: #222;
+  transition: opacity 0.5s ease, background-color 0.5s ease, color 0.5s ease;
 }
+
+p {
+text-align: justify;
+}
+
+footer p {
+  text-align: center;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
 section {
   text-align: left;
 }
 
-h5  {
+h5 {
   text-align: left;
   font-size: 15px;
 }
@@ -18,14 +37,15 @@ h5  {
 h4 {
   text-align: center;
   font-size: 30px;
-
 }
 
+/* ========================= HEADER ========================= */
 header {
   text-align: center;
   padding: 40px 20px;
   background: #2563eb;
   color: white;
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
 
 header h1 {
@@ -34,127 +54,56 @@ header h1 {
 }
 
 header p {
-  font-size: 1em;
-  margin-top: 10px;
-}
-
-/* ====== TEAM CONTAINER ====== */
-.team-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 30px;
-}
-
-/* ====== PERSON CARD ====== */
-.person-card {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 1s, box-shadow 1s;
-}
-
-.person-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-.person-card img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-}
-
-.person-card h2 {
-  font-size: 1.2em;
-  margin-bottom: 5px;
-}
-
-.person-card h3 {
-  color: #2563eb;
   font-size: 1em;
-  margin: 5px 0 15px;
-}
-
-.person-card p {
-  font-size: 0.95em;
-  line-height: 1.5;
-}
-
-.contact {
-  font-size: 0.9em;
-  color: #444;
   margin-top: 10px;
 }
 
- /* ====== VIEW PROFILE & BACK BUTTON ====== */
-.view-profile, .back-button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 15px;
-  background: #2563eb;
+.dark-mode header {
+  background: #1f2937;
+  color: #f9fafb;
+}
+
+/* ========================= NAVBAR ========================= */
+.navbar {
+  background: #1e40af;
+  text-align: center;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar a {
   color: white;
   text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.03s;
+  margin: 0 15px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s, background 0.3s;
+  padding: 8px 12px;
+  border-radius: 6px;
 }
 
-.view-profile:hover, .back-button:hover {
-  background: #1e4fd6;
+.navbar a:hover {
+  background: #2563eb;
+  color: #f3f4f6;
 }
 
-/* ====== SINGLE PROFILE PAGE ====== */
-.person-profile {
-  max-width: 600px;
-  margin: 50px auto;
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  text-align: center;
+.dark-mode .navbar {
+  background: #111827;
 }
 
-.person-profile img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
+.dark-mode .navbar a {
+  color: #e5e7eb;
 }
 
-/* ====== GENERAL STYLES ====== */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f8f9fc;
-  color: #222;
-}
-
-header {
-  text-align: center;
-  padding: 40px 20px;
+.dark-mode .navbar a:hover {
   background: #2563eb;
   color: white;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.2em;
-}
-
-header p {
-  font-size: 1em;
-  margin-top: 10px;
-}
-
-/* ====== TEAM CONTAINER ====== */
+/* ========================= TEAM CONTAINER ========================= */
 .team-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -164,19 +113,24 @@ header p {
   padding: 0 20px;
 }
 
-/* ====== PERSON CARD ====== */
+/* ========================= PERSON CARD ========================= */
 .person-card {
   background: white;
   border-radius: 12px;
   padding: 30px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.4s ease, color 0.4s ease;
 }
 
 .person-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.person-card:active {
+  transform: scale(0.95);
+  transition: transform 0.001s ease;
 }
 
 .person-card img {
@@ -209,32 +163,59 @@ header p {
   margin-top: 10px;
 }
 
-/* ====== FOOTER ====== */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
-  color: #777;
-  background: #e9edf5;
+.dark-mode .person-card {
+  background: #1e1e1e;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.05);
 }
 
-/* ====== VIEW PROFILE & BACK BUTTON ====== */
-.view-profile, .back-button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 15px;
-  background: #2563eb;
-  color: white;
+.dark-mode .person-card h3 {
+  color: #60a5fa;
+}
+
+/* ========================= SOCIAL BUTTONS ========================= */
+.social-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
   text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.03s;
+  color: white;
+  transition: 0.3s ease;
 }
 
-.view-profile:hover, .back-button:hover {
-  background: #1e4fd6;
+.fb { background: #1877f2; }
+
+.ig {
+  background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
-/* ====== SINGLE PROFILE PAGE ====== */
+.tk { background: #000; }
+
+.social-btn:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
+
+.dark-mode .social-btn { box-shadow: 0 0 12px rgba(255, 255, 255, 0.5); }
+.dark-mode .fb { box-shadow: 0 0 12px rgba(24, 119, 242, 0.8); }
+.dark-mode .ig { box-shadow: 0 0 12px rgba(230, 45, 100, 0.8); }
+.dark-mode .tk { box-shadow: 0 0 12px rgba(255, 255, 255, 0.9); }
+
+.dark-mode .social-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 18px white;
+}
+
+/* ========================= PROFILE PAGE ========================= */
 .person-profile {
   max-width: 600px;
   margin: 50px auto;
@@ -243,6 +224,7 @@ footer {
   padding: 30px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   text-align: center;
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .person-profile img {
@@ -253,35 +235,27 @@ footer {
   margin-bottom: 20px;
 }
 
-/* ====== DARK MODE ====== */
-.dark-mode {
-  background: #121212;
-  color: #e0e0e0;
-}
-
-/* Header */
-.dark-mode header {
-  background: #1f2937;
-  color: #f9fafb;
-}
-
-/* Cards */
-.dark-mode .person-card {
-  background: #1e1e1e;
-  box-shadow: 0 4px 15px rgba(255,255,255,0.05);
-}
-
-.dark-mode .person-card h3 {
-  color: #60a5fa;
-}
-
-/* Profile Page */
 .dark-mode .person-profile {
   background: #1e1e1e;
   box-shadow: 0 4px 15px rgba(255,255,255,0.05);
 }
 
-/* Buttons */
+/* ========================= BUTTONS ========================= */
+.view-profile, .back-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.03s, background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.view-profile:hover, .back-button:hover {
+  background: #1e4fd6;
+}
+
 .dark-mode .view-profile,
 .dark-mode .back-button,
 .dark-mode .dark-mode-toggle {
@@ -295,40 +269,6 @@ footer {
   background: #1e4fd6;
 }
 
-/* Footer */
-.dark-mode footer {
-  background: #1f2937;
-  color: #aaa;
-}
-
-/* Dark Mode Toggle Button Style */
-.dark-mode-toggle {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.003s;
-  z-index: 1000;
-}
-
-.dark-mode-toggle:hover {
-  background: #1e4fd6;
-}
-
-
-/* ====== CLICK ANIMATION FOR PERSON CARDS ====== */
-.person-card:active {
-  transform: scale(0.95);
-  transition: transform 0.001s ease;
-}
-
-/* Optional: add a smooth fade effect when clicking the View Profile link */
 .view-profile {
   position: relative;
   overflow: hidden;
@@ -349,155 +289,9 @@ footer {
   left: 100%;
 }
 
-/* Fade animation */
-body.back-button {
-  transition: opacity 10s ease;
-}
-
-body.fade-out {
-  opacity: 70%;
-}
-
-
-/* ====== NAVBAR STYLES ====== */
-.navbar {
-  background: #1e40af;
-  text-align: center;
-  padding: 12px 0;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 0.3s, background 0.3s;
-  padding: 8px 12px;
-  border-radius: 6px;
-}
-
-.navbar a:hover {
-  background: #2563eb;
-  color: #f3f4f6;
-}
-
-/* ====== DARK MODE NAVBAR ====== */
-.dark-mode .navbar {
-  background: #111827;
-}
-
-.dark-mode .navbar a {
-  color: #e5e7eb;
-}
-
-.dark-mode .navbar a:hover {
-  background: #2563eb;
-  color: white;
-}
-
-position: sticky;
-top: 0;
-z-index: 100;
-
-
-/* Smooth fade animation */
-body {
-  transition: opacity 0.5s ease, background-color 0.5s ease, color 0.5s ease;
-}
-
-/* Dark Mode */
-body.dark-mode {
-  background-color: #121212;
-  color: #f5f5f5;
-}
-
-/* Fade effect when switching pages */
-body.fade-out {
-  opacity: 0;
-}
-
-.social-buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.social-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  font-size: 20px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s ease;
-}
-
-/* Colors */
-.fb {
-  background: #1877f2;
-}
-
-.ig {
-  background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-}
-
-.tk {
-  background: #000;
-}
-
-.social-btn:hover {
-  transform: scale(1.15);
-  opacity: 0.85;
-}
-
-/* ===== SOCIAL ICONS IN DARK MODE ===== */
-.dark-mode .social-btn {
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
-}
-
-.dark-mode .fb {
-  box-shadow: 0 0 12px rgba(24, 119, 242, 0.8);
-}
-
-.dark-mode .ig {
-  box-shadow: 0 0 12px rgba(230, 45, 100, 0.8);
-}
-
-.dark-mode .tk {
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
-}
-
-/* Hover glow boost */
-.dark-mode .social-btn:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 18px white;
-}
-
-/* Smooth transition when switching themes */
-body {
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
- .person-card,
-header,
-footer,
-.person-profile,
-.view-profile,
-.back-button {
-  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
-}
- .fade-mode {
-  animation: fadeMode 0.4s ease;
-}
-
-@keyframes fadeMode {
-  0% { opacity: 0.5; }
-  100% { opacity: 1; }
-}
-
-.dark-transition {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+/* ========================= DARK MODE TOGGLE ========================= */
+.dark-mode-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #2563eb
