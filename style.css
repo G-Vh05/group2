@@ -12,6 +12,14 @@ p {
 text-align: justify;
 }
 
+footer img {
+max-width: 1150px;
+border: 1px auto-fit;
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 footer p {
   text-align: center;
 }
@@ -295,3 +303,4 @@ header p {
   top: 15px;
   right: 15px;
   background: #2563eb
+}
